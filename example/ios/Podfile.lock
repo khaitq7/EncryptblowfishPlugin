@@ -1,0 +1,22 @@
+PODS:
+  - encryptblowfish (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - encryptblowfish (from `.symlinks/plugins/encryptblowfish/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  encryptblowfish:
+    :path: ".symlinks/plugins/encryptblowfish/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  encryptblowfish: 76f6bf21fb3c5165cb45a19184114bf3bbd93083
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: 3dbe063e9c90a5d7c9e4e76e70a821b9e2c1d271
+
+COCOAPODS: 1.9.1
