@@ -1,7 +1,7 @@
 name: encryptblowfish
 description: The plugin encrypt and decrypt blowfish with mode ECB
-version: 0.0.1
-author: Max Tran (khaitq@gmail.com)
+version: 0.2.1
+#author: Max Tran (khaitq@gmail.com)
 homepage: https://github.com/khaitq7/EncryptblowfishPlugin.git
 
 environment:
