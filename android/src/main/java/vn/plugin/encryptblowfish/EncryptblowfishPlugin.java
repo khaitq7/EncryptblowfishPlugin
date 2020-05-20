@@ -9,7 +9,6 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
-import android.util.Base64;
 import android.util.Log;
 
 import javax.crypto.Cipher;
@@ -80,10 +79,19 @@ public class EncryptblowfishPlugin implements FlutterPlugin, MethodCallHandler {
       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.FROYO) {
         byte[] KeyData = key.getBytes();
         SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-        Cipher cipher = Cipher.getInstance("Blowfish");
+        Cipher cipher = Cipher.getInstance("Blowfish/ECB/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, KS);
-        byte[] encrypted = cipher.doFinal(originStr.getBytes());
-        String result = Base64.encodeToString(encrypted , 0);
+        byte encrypt[] = originStr.getBytes();
+        if(encrypt.length % 8 != 0){ //not a multiple of 8
+          //create a new array with a size which is a multiple of 8
+          byte[] padded = new byte[encrypt.length + 8 - (encrypt.length % 8)];
+
+          //copy the old array into it
+          System.arraycopy(encrypt, 0, padded, 0, encrypt.length);
+          encrypt = padded;
+        }
+        byte[] encrypted = cipher.doFinal(encrypt);
+        String result = Base64.encodeToString(encrypted , Base64.DEFAULT);
         Log.d("TAG" , "result encode : " + result);
         return result;
       }
