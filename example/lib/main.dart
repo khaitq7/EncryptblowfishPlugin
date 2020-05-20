@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  String key = 'dontchangethiswordsdontchangethiswords';
+  String key = 'abc';
   String originStr = 'abcxyz';//todo chuỗi gốc , đang chưa mã hóa
   String decryptStr = 'kIk42UnwY8g=';//todo chuỗi đã được mã hóa , cần được giải hóa
   String _encrypt = 'Unknown';
